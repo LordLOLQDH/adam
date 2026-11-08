@@ -96,7 +96,24 @@
 
     <section class="contact section-wrap">
       <div class="section-label"><span>04 / ELSEWHERE</span><span>THE NEXT IDEA IS ONE MESSAGE AWAY</span></div>
-      <div class="contact-main"><p class="eyebrow">HAVE A LOOK AROUND</p><h2>More ideas.<br>More <span class="outline-word">building.</span></h2><a class="contact-button" href="https://github.com/LordLOLQDH" target="_blank" rel="noreferrer">FIND ME ON GITHUB <span>↗</span></a></div>
+      <div class="contact-main"><p class="eyebrow">HAVE A LOOK AROUND</p><h2>More ideas.<br>More <span class="outline-word">building.</span></h2><a class="contact-button" href="https://github.com/LordLOLQDH" target="_blank" rel="noreferrer">FIND ME ON GITHUB <span>↗</span></a>
+        <form class="contact-form" id="contact-form">
+          <div class="form-heading"><span class="project-type">SEND A MESSAGE</span><p>Have a question or an idea? Write a message below.</p></div>
+          <div class="form-row">
+            <label for="contact-name">NAME</label>
+            <input id="contact-name" name="name" type="text" placeholder="Your name" autocomplete="name" required maxlength="100">
+          </div>
+          <div class="form-row">
+            <label for="contact-email">EMAIL</label>
+            <input id="contact-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required maxlength="200">
+          </div>
+          <div class="form-row">
+            <label for="contact-message">MESSAGE</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="What would you like to talk about?" required maxlength="5000"></textarea>
+          </div>
+          <button class="contact-submit" type="submit">SEND MESSAGE <span>↗</span></button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form></div>
       <footer><a class="wordmark" href="#top"><span class="mark">A.</span><span>ADAM</span></a><span>BUILT WITH CURIOSITY.</span><span>© <span id="footer-year">2026</span> ADAM</span></footer>
     </section>
   </main>
