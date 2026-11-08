@@ -14,3 +14,31 @@ if ("IntersectionObserver" in window) {
 } else {
   items.forEach((item) => item.classList.add("visible"));
 }
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+  const submitButton = contactForm.querySelector("button[type='submit']");
+  const status = document.getElementById("form-status");
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!contactForm.reportValidity()) return;
+    submitButton.disabled = true;
+    status.textContent = "Sending your message…";
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/adam_kraus@icloud.com", {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { "Accept": "application/json" }
+      });
+      const result = await response.json();
+      if (!response.ok || result.success === "false" || result.success === false) {
+        throw new Error(result.message || "Message could not be sent.");
+      }
+      contactForm.reset();
+      status.textContent = "Message sent. Thanks for reaching out!";
+    } catch (error) {
+      status.textContent = "Sending failed. Please try again later.";
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+}
